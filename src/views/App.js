@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { store } from '../redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '../redux/store';
 
 import LayerOne from '../components/LayerOne/LayerOne';
 
@@ -11,10 +12,15 @@ const App = () => {
 
   return (
     <ReduxProvider store={store}>
-      <div className='app'>
-        <LayerOne state={state} setState={setState} side='left' />
-        <LayerOne state={state} setState={setState} side='right' />
-      </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className='app'>
+          <LayerOne state={state} setState={setState} side='left' />
+          <LayerOne state={state} setState={setState} side='right' />
+        </div>
+        <button type='button' className='refreshButton' onClick={() => document.location.reload(true)}>
+          Refresh
+        </button>
+      </PersistGate>
     </ReduxProvider>
   );
 };

@@ -1,25 +1,32 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as types from '../../redux/reducer/types';
+import * as whiteTypes from '../../redux/whiteReducer/types';
+import * as blackTypes from '../../redux/blackReducer/types';
 
 import '../styles.css';
 
 const LayerTen = ({ state, setState, side }) => {
   const dispatch = useDispatch();
-  const { value } = useSelector(store => store.reducerExample);
+  const { whiteValue } = useSelector(store => store.whiteReducer);
+  const { blackValue } = useSelector(store => store.blackReducer);
 
   const handleSubmit = e => {
     e.preventDefault();
     const newValue = e.target.newValue.value;
     setState(newValue);
     dispatch({
-      type: types.ADD_VALUE,
+      type: whiteTypes.ADD_WHITE_VALUE,
+      newValue,
+    });
+    dispatch({
+      type: blackTypes.ADD_BLACK_VALUE,
       newValue,
     });
   };
 
   const handleClean = () => {
-    dispatch({ type: types.CLEAN_VALUE });
+    dispatch({ type: whiteTypes.CLEAN_VALUE });
+    dispatch({ type: blackTypes.CLEAN_VALUE });
     setState(null);
     document.getElementById('newValue').value = '';
   };
@@ -45,7 +52,11 @@ const LayerTen = ({ state, setState, side }) => {
           </div>
           <div className='inputGroup'>
             <span>Redux</span>
-            <span>value: {value}</span>
+            <span>White value: {whiteValue}</span>
+          </div>
+          <div className='inputGroup'>
+            <span>Redux</span>
+            <span>Black value: {blackValue}</span>
           </div>
         </div>
       );

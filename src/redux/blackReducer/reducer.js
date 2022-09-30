@@ -1,20 +1,20 @@
 import * as types from './types';
 
 const initialState = {
-  value: null,
+  blackValue: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.ADD_VALUE:
+    case types.ADD_BLACK_VALUE:
       return {
         ...state,
-        value: action.newValue,
+        blackValue: action.newValue,
       };
     case types.CLEAN_VALUE:
       return {
         ...state,
-        value: null,
+        blackValue: null,
       };
     default:
       return state;
