@@ -1,13 +1,22 @@
 .container {
-  padding: 12px;
+  padding: 12px 4px 4px 4px;
   border: 1px solid #000;
   border-radius: 4px;
-  margin: 12px;
+  margin: 12px 4px 4px 4px;
+  background-color: #fff;
+}
+
+.leftForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  padding: 0 12px 12px;
 }
 
 .content {
   display: flex;
-  width: 500px;
+  width: 600px;
 }
 
 .inputGroup {
@@ -15,10 +24,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
-  padding: 12px;
   width: 100%;
   border: 2px solid #000;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 12px;
   margin: 0 12px;
 }
 
@@ -32,4 +42,23 @@
 
 .inputGroup span:first-of-type {
   font-weight: bold;
+}
+
+@keyframes tint-animation {
+  from {
+    background-color: #fff;
+  }
+  to {
+    background-color: var(--tint-color);
+  }
+}
+
+.tintAnimation {
+  animation-name: tint-animation;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+}
+
+.tint {
+  background-color: var(--tint-color);
 }

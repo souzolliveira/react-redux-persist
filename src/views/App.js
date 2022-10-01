@@ -13,7 +13,7 @@ const App = () => {
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <div className='app'>
+        <div className='app' style={{ '--tint-color': 'red' }}>
           <LayerOne state={state} setState={setState} side='left' />
           <LayerOne state={state} setState={setState} side='right' />
         </div>
