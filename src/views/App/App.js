@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from '../redux/store';
+import { store, persistor } from '../../redux/store';
 
-import LayerOne from '../components/LayerOne/LayerOne';
-import LayerStore from '../components/LayerStore/LayerStore';
+import LayerOne from '../../components/LayerOne/LayerOne';
+import LayerStore from '../../components/LayerStore/LayerStore';
 
-import '../index.css';
+import '../../index.css';
 
 const App = () => {
   const [state, setState] = useState(null);
