@@ -8,12 +8,10 @@ const LayerStore = () => {
   const { blackValue } = useSelector(store => store.blackReducer);
 
   return (
-    <div className='store'>
-      <div id='store' className='inputGroup'>
-        <span>Redux</span>
-        <span>White value: {whiteValue}</span>
-        <span>Black value: {blackValue}</span>
-      </div>
+    <div id='store' className='store'>
+      <span>Redux</span>
+      <span>White value: {whiteValue}</span>
+      <span>Black value: {blackValue}</span>
     </div>
   );
 };
