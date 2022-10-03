@@ -4,6 +4,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '../redux/store';
 
 import LayerOne from '../components/LayerOne/LayerOne';
+import LayerStore from '../components/LayerStore/LayerStore';
 
 import '../index.css';
 
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <LayerStore />
         <div className='app' style={{ '--tint-color': 'red' }}>
           <LayerOne state={state} setState={setState} side='left' />
           <LayerOne state={state} setState={setState} side='right' />

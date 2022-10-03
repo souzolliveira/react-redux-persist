@@ -62,3 +62,49 @@
 .tint {
   background-color: var(--tint-color);
 }
+
+.store {
+  position: fixed;
+  left: 24px;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes transport-animation {
+  0% {
+    width: 20px;
+    height: 20px;
+    top: var(--start-y);
+    left: var(--start-x);
+  }
+  25% {
+    width: 40px;
+    height: 40px;
+  }
+  50% {
+    width: 20px;
+    height: 20px;
+    top: var(--store-y);
+    left: var(--store-x);
+  }
+  75% {
+    width: 40px;
+    height: 40px;
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+    top: var(--end-y);
+    left: var(--end-x);
+  }
+}
+
+.transport {
+  position: fixed;
+  background-color: green;
+  border-radius: 20px;
+  animation-name: transport-animation;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
