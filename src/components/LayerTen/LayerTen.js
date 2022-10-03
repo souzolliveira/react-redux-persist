@@ -65,10 +65,13 @@ const LayerTen = ({ state, setState, side }) => {
   };
 
   const handleClean = () => {
-    dispatch({ type: whiteTypes.CLEAN_VALUE });
-    dispatch({ type: blackTypes.CLEAN_VALUE });
-    setState(null);
+    setStartTransport(true);
     document.getElementById('start').value = '';
+    setTimeout(() => {
+      dispatch({ type: whiteTypes.CLEAN_VALUE });
+      dispatch({ type: blackTypes.CLEAN_VALUE });
+      setState(null);
+    }, [500]);
   };
 
   const handleElement = s => {
